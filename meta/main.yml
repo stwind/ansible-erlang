@@ -1,0 +1,32 @@
+---
+galaxy_info:
+  author: stwind
+  description: A role that install Erlang with kerl
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 1.4
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+    - lucid
+    - maverick
+    - natty
+    - oneiric
+    - precise
+    - quantal
+    - raring
+    - saucy
+    - trusty
+  - name: Debian
+    versions:
+    - all
+    - etch
+    - lenny
+    - squeeze
+    - wheezy
+  # Below are all categories currently available. Just as with
+  # the platforms above, uncomment those that apply to your role.
+  #
+  categories:
+  - development
+dependencies: []

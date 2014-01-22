@@ -1,0 +1,26 @@
+---
+- name: download kerl
+  get_url: url={{erlang_kerl_url}} dest=/usr/bin/kerl mode=0744
+
+- name: install dependencies from apt
+  apt: pkg={{item}} state=present
+  with_items:
+  - curl
+  - libssl-dev
+  - libncurses5-dev
+  - build-essential
+
+- name: kerl update release
+  command: /usr/bin/kerl update releases creates=/root/.kerl/otp_releases
+
+- name: build default erlang {{erlang_default_ver}}
+  command: kerl build {{erlang_default_ver}} default creates=/root/.kerl/builds/default
+
+- name: kerl install default erlang
+  command: kerl install default {{erlang_install_to}}/default creates={{erlang_install_to}}/default
+
+- name: activate erlang for users
+  lineinfile: line='source {{erlang_install_to}}/default/activate' 
+              dest=/etc/bash.bashrc 
+              regexp='{{erlang_install_to}}/default/activate'
+              state=present

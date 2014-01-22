@@ -1,0 +1,5 @@
+---
+# defaults file for erlang
+erlang_kerl_url: https://raw.github.com/spawngrid/kerl/master/kerl
+erlang_default_ver: R16B03
+erlang_install_to: /usr/lib/kerl/installs
