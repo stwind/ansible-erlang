@@ -12,11 +12,10 @@ Role Variables
 --------------
 
 The variables that can be passed to this role and a brief description about them are as follows:
-```yaml
-erlang_kerl_url: https://raw.github.com/spawngrid/kerl/master/kerl  # Url of the kerl script
-erlang_default_ver: R16B03                                          # Version to install
-erlang_install_to: /usr/lib/kerl/installs                           # Install location
-```
+
+* `erlang_kerl_url`: url of the kerl script
+* `erlang_default_ver`: Erlang version to install [default: `R16B03`]
+* `erlang_install_to`: location to install [default: `/usr/lib/kerl/installs`]
 
 Dependencies
 ------------
