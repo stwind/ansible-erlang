@@ -1,0 +1,3 @@
+#!/bin/bash
+KERL_DOWNLOAD_DIR={{erlang_kerl_download_dir}}
+KERL_BUILD_DIR={{erlang_kerl_build_dir}}
