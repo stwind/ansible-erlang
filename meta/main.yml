@@ -8,22 +8,9 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - all
-    - lucid
-    - maverick
-    - natty
-    - oneiric
-    - precise
-    - quantal
-    - raring
-    - saucy
-    - trusty
   - name: Debian
     versions:
     - all
-    - etch
-    - lenny
-    - squeeze
-    - wheezy
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
   #

@@ -1,12 +1,15 @@
 ---
 - name: download kerl
-  get_url: url={{erlang_kerl_url}} dest=/usr/bin/kerl mode=0744
+  get_url: url={{erlang_kerl_url}} dest={{erlang_kerl_bin}} mode=0777
+  sudo: true
 
 - name: apt-get update
   apt: update_cache=yes cache_valid_time=86400
+  sudo: true
 
 - name: install dependencies from apt
   apt: pkg={{item}} state=present
+  sudo: true
   with_items:
   - curl
   - libssl-dev
@@ -14,19 +17,20 @@
   - build-essential
 
 - name: ensure ~/.kerlrc
-  template: src=kerlrc dest=/root/.kerlrc owner=root mode=0744
+  template: src=kerlrc dest={{ansible_env['HOME']}}/.kerlrc owner={{ansible_env['USER']}} mode=0744
 
 - name: kerl update release
-  command: /usr/bin/kerl update releases creates=/root/.kerl/otp_releases
+  command: "{{erlang_kerl_bin}} update releases creates={{ansible_env['HOME']}}/.kerl/otp_releases"
 
 - name: build erlang
-  command: kerl build {{erlang_version}} default creates=/root/.kerl/builds/default
+  command: "{{erlang_kerl_bin}} build {{erlang_version}} default creates={{erlang_kerl_build_dir}}/default"
 
 - name: kerl install default erlang
-  command: kerl install default {{erlang_install_to}}/default creates={{erlang_install_to}}/default
+  command: sudo {{erlang_kerl_bin}} install default {{erlang_install_to}}/default creates={{erlang_install_to}}/default
 
 - name: activate erlang for users
   lineinfile: line='source {{erlang_install_to}}/default/activate' 
               dest=/etc/bash.bashrc 
               regexp='{{erlang_install_to}}/default/activate'
               state=present
+  sudo: true

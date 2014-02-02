@@ -1,6 +1,7 @@
 ---
 # defaults file for erlang
 erlang_kerl_url: https://raw.github.com/spawngrid/kerl/master/kerl
+erlang_kerl_bin: /usr/local/bin/kerl
 erlang_version: R16B03
 erlang_install_to: /usr/lib/kerl/installs
 erlang_kerl_download_dir: /tmp/kerl/archives
