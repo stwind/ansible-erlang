@@ -14,6 +14,7 @@ Role Variables
 The variables that can be passed to this role and a brief description about them are as follows:
 
 * `erlang_kerl_url`: url of the kerl script
+* `erlang_kerl_bin`: localtion of kerl executable [default: `/usr/local/bin/kerl`]
 * `erlang_default_ver`: Erlang version to install [default: `R16B03`]
 * `erlang_install_to`: location to install [default: `/usr/lib/kerl/installs`]
 * `erlang_kerl_download_dir`: folder for otp source [default: `/tmp/kerl/archives`]
